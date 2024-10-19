@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Wear</title>
+    <style>
+        /* Basic styles for navbar */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #333;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+        }
+
+        .men {
+            text-align: center;
+            padding-right: 0;
+            padding-top: 15px;
+            color: white;
+            flex-grow: 1;
+        }
+
+        .men:hover {
+            color: aliceblue;
+            zoom: 105%;
+        }
+
+        .navbar a {
+            font-size: large;
+            text-align: center;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            height: 100%;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0%); }
+        }
+
+        /* Slider Styles */
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Navigation buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Product Cards */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            width: 90%;
+            margin: 15px auto;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 23%;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-price {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .buttons button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .buttons button:hover {
+            background-color: #45a049;
+        }
+
+        .like-button {
+            background-color: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #e74c3c;
+        }
+
+        .like-button:hover {
+            color: #c0392b;
+        }
+
+        @media (max-width: 1200px) {
+            .product-card {
+                width: 45%;
+            }
+
+            .navbar a {
+                font-size: medium;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                width: 100%;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                padding: 10px 15px;
+            }
+
+            .men {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <h1 class="men">Women's Wear</h1>
+    </div>
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slides">
+            <img src="https://w0.peakpx.com/wallpaper/233/676/HD-wallpaper-girl-wearning-nike-sneakers-girls-model.jpg" alt="Slide 1">
+            <img src="https://cdnimg.dreampairs.com/dreampairshoes/image/article/20220830_88/sdfn2415w-womens-sneakers-with-skirts.png" alt="Slide 2">
+            <img src="https://www.shutterstock.com/image-photo/street-fashion-elements-woman-wearing-600nw-2043919127.jpg" alt="Slide 3">
+        </div>
+        <!-- Navigation buttons -->
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    </div>
+
+    <!-- Product Container -->
+    <div class="product-container">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWowOgGwFvukmGVzEpQg-fjMfBRiTKLJUvHw&s" alt="Product Image">
+            <div class="product-info">
+                <h3 class="product-title">Comfort Sneakers</h3>
+                <p class="product-price">$89.99</p>
+                <div class="buttons">
+                    <button>Add to Cart</button>
+                    <button class="like-button">&hearts;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGJWfVC2SwlkV5zRPq0bp4n2eqYrfIkmqHWA&s" alt="Product Image">
+            <div class="product-info">
+                <h3 class="product-title">Grey touch</h3>
+                <p class="product-price">$67.99</p>
+                <div class="buttons">
+                    <button>Add to Cart</button>
+                    <button class="like-button">&hearts;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="product-card">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20240419/YtkW/6621fa0e16fd2c6e6ac066c7/-473Wx593H-467023517-white-MODEL.jpg" alt="Product Image">
+            <div class="product-info">
+                <h3 class="product-title">Designed Beast</h3>
+                <p class="product-price">$65.99</p>
+                <div class="buttons">
+                    <button>Add to Cart</button>
+                    <button class="like-button">&hearts;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="product-card">
+            <img src="https://images.meesho.com/images/products/421938990/81imn_512.webp" alt="Product Image">
+            <div class="product-info">
+                <h3 class="product-title">Track Shoes</h3>
+                <p class="product-price">$23.99</p>
+                <div class="buttons">
+                    <button>Add to Cart</button>
+                    <button class="like-button">&hearts;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            if (index >= totalSlides) currentIndex = 0;
+            if (index < 0) currentIndex = totalSlides - 1;
+            slides.style.transform = `translateX(${-currentIndex * 100}vw)`;
+        }
+
+        function moveSlide(n) {
+            showSlide(currentIndex += n);
+        }
+
+        // Initialize the first slide
+        showSlide(currentIndex);
+    </script>
+
+</body>
+</html>

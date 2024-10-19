@@ -1,0 +1,219 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .left {
+            flex: 1;
+            background-image: url('shoes.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .right {
+            flex: 1;
+            background-color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 150px; /* Adjust as needed */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        .bon{
+
+           background-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Left side with image -->
+        <div class="left"></div>
+
+        <!-- Right side with form -->
+        <div class="right">
+            <div class="logo">
+                <img src="logo.png" alt="Logo"> <!-- Replace with your logo image -->
+            </div>
+            <form id="studentForm" onsubmit="return validateForm()">
+
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name">
+                <span class="error" id="nameError"></span>
+            
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email">
+                <span class="error" id="emailError"></span>
+            
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <span class="error" id="passwordError"></span>
+            
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword">
+                <span class="error" id="confirmPasswordError"></span>
+            
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
+                <span class="error" id="phoneError"></span>
+            
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4"></textarea>
+                <span class="error" id="addressError"></span>
+
+            
+                <input type="submit" value="Register" class="bon">
+            </form>
+            
+            <script>
+                function validateForm() {
+                    let valid = true;
+            
+                    let name = document.getElementById("name").value;
+                    let namePattern = /^[A-Za-z\s]+$/;
+                    if (name === "") {
+                        document.getElementById("nameError").textContent = "Name is required.";
+                        valid = false;
+                    } else if (!namePattern.test(name)) {
+                        document.getElementById("nameError").textContent = "Name cannot contain numbers or special characters.";
+                        valid = false;
+                    } else {
+                        document.getElementById("nameError").textContent = "";
+                    }
+            
+                    let email = document.getElementById("email").value;
+                    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    if (email === "") {
+                        document.getElementById("emailError").textContent = "Email is required.";
+                        valid = false;
+                    } else if (!emailPattern.test(email)) {
+                        document.getElementById("emailError").textContent = "Invalid email format.";
+                        valid = false;
+                    } else {
+                        document.getElementById("emailError").textContent = "";
+                    }
+            
+                    let password = document.getElementById("password").value;
+                    let confirmPassword = document.getElementById("confirmPassword").value;
+                    if (password === "") {
+                        document.getElementById("passwordError").textContent = "Password is required.";
+                        valid = false;
+                    } else if (password.length < 6) {
+                        document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+                        valid = false;
+                    } else {
+                        document.getElementById("passwordError").textContent = "";
+                    }
+            
+                    if (confirmPassword === "") {
+                        document.getElementById("confirmPasswordError").textContent = "Confirm password is required.";
+                        valid = false;
+                    } else if (confirmPassword !== password) {
+                        document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+                        valid = false;
+                    } else {
+                        document.getElementById("confirmPasswordError").textContent = "";
+                    }
+            
+                    let phone = document.getElementById("phone").value;
+                    if (phone === "") {
+                        document.getElementById("phoneError").textContent = "Phone number is required.";
+                        valid = false;
+                    } else if (!/^\d{10}$/.test(phone)) {
+                        document.getElementById("phoneError").textContent = "Phone number must be 10 digits.";
+                        valid = false;
+                    } else {
+                        document.getElementById("phoneError").textContent = "";
+                    }
+            
+                    let address = document.getElementById("address").value;
+                    if (address === "") {
+                        document.getElementById("addressError").textContent = "Address is required.";
+                        valid = false;
+                    } else {
+                        document.getElementById("addressError").textContent = "";
+                    }
+            
+
+                    return valid;
+                }
+        
+
+        // If form is valid, redirect to home.html
+            if (valid) {
+                window.location.href = 'home.html';
+            };
+    </script>

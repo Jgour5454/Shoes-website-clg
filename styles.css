@@ -1,0 +1,666 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    motion: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: black;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.logo{
+    border:1px solid rgb(249, 2, 2);
+    border-radius: 4px;
+}
+
+/* Logo Section */
+.navbar .logo img {
+    height: 50px; /* Adjust logo height */
+}
+
+/* Search Bar Section */
+.search-container {
+    display: flex;
+    flex-grow: 1;
+    margin: 0 20px;
+    justify-content: space-between;
+    max-width: 100px;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+    max-width: 500px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    border: 1px solid #ddd;
+    border-left: none;
+    border-radius: 5px 0px 0px 5px;
+    font-size: 12px; /* Reduced font size */
+    outline: none;
+}
+
+.search-bar .search-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 0 15px; /* Reduced button padding */
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    font-size: 12px; /* Match font size with input */
+}
+
+.tabs {
+    display: flex;
+    gap: 15px;
+}
+
+.tab {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #444;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.tab:hover {
+    transform: scale(1.1); /* Zoom in on hover */
+    background-color: #555; /* Optional background color change on hover */
+}
+
+/* Login Form Styling */
+.login-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto; /* Centered with margin */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.login:hover {
+    background-color:firebrick;
+}
+.login-logo {
+    width: 60px; /* Adjust the width of the logo to make it smaller */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures it behaves like a block element */
+    margin: 0 auto 20px; /* Center the logo and add some space below */
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-form button {
+    margin: 10px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .user-cart .login {
+        margin-right: 10px;
+    }
+}
+.user-cart {
+    display: flex;
+    align-items: center; /* Center the icons and text vertically */
+    gap: 15px; /* Space between buttons */
+}
+
+.user-cart .login
+{
+    display: flex;
+    align-items: center; /* Center icon and text vertically */
+    padding: 8px 12px; /* Padding for button appearance */
+    background-color: #f0f0f0; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    color: #333; /* Text color */
+    font-size: 14px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.user-cart .login:hover,
+.user-cart .cart:hover {
+    background-color: #e0e0e0; /* Change background on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.user-cart .login i,
+.user-cart .cart i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+
+/* Slider Container Styling */
+
+.slider-container {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slider Styling */
+.slider {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Each Slide Image */
+.slide {
+    min-width: 100vw; /* Each slide takes the full width of the viewport */
+    height: 100%; /* Match the height of the container */
+    display: none; /* Hide slides initially */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 3s ease-in-out;
+    opacity: 0; /* Make it transparent initially */
+}
+
+/* Active Slide Visibility */
+.slide.active {
+    display: block; /* Show active slide */
+    opacity: 1; /* Make the active slide visible */
+    z-index: 1; /* Bring the active slide on top */
+}
+
+/* Image Styling */
+.slider img {
+    width: 100vw; /* Ensure the image takes full width of the viewport */
+    height: 100vh; /* Ensure the image takes full height of the container */
+    object-fit: cover; /* This ensures the image covers the container without distortion */
+}
+
+
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    align-items: center; /* Center the content vertically */
+    justify-content: center; /* Center the content horizontally */
+    z-index: 1000; /* Above all other content */
+}
+
+/* Login Form Styling */
+.login-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px; /* Set fixed width for the pop-up */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sub{
+
+        border: 0;
+        height: 2px;
+        background: linear-gradient(to right, #0e0a04, #121110);
+        margin: 20px 0;
+}
+
+                                /*   card css bootstsap*/
+        
+
+/* Card hover effect */
+.product-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effects */
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-light:hover {
+    background-color:aliceblue;
+    border-color: #ddd;
+}
+.btn-light-share:hover {
+    background-color: #3873cc;
+    border-color: #ddd;
+}
+
+/* Image hover effect */
+.card-img-top {
+    transition: transform 0.7s ease;
+}
+
+.product-card:hover .card-img-top {
+    transform: scale(1.5);
+}
+
+.container{
+
+    background-color:#000;
+}
+
+/*zoom effect*/
+
+
+ /* Button hover zoom effect */
+.btn:hover {
+    transform: scale(1.2); /* Zoom in effect */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Optional: Slightly change button color on hover */
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-light:hover {
+    background-color: #f8f9fa;
+    border-color: #ddd;
+}
+
+/* Image icons also zoom in */
+.btn img:hover {
+    transform: scale(1.2); /* Zoom effect for icons */
+    transition: transform 0.3s ease;
+}
+
+
+.product-image {
+    height: 250px;
+    object-fit: cover;
+}
+
+.btn img {
+    transition: transform 0.3s ease;
+}
+
+.btn:hover img {
+    transform: scale(1.2);
+}
+
+                                    /*  heading of cards section */
+.heading{
+
+    text-align: center;
+}
+
+
+                                        /*    big picture    */
+
+
+/* Existing styles */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background: url('https://images.dsw.com/is/image/DSWShoes/P241763_ft_shearling?impolicy=qlt-medium&imwidth=1400&imdensity=2') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    color: black;
+}
+
+.hero-pos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background: url('https://images.dsw.com/is/image/DSWShoes/P241763_ft_tall-boots?impolicy=qlt-medium&imwidth=1400&imdensity=2') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    color: black;
+}
+
+.content {
+    max-width: 40%;
+    color: #000;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+}
+
+.shop-btn {
+    padding: 15px 25px;
+    font-size: 1em;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* New zoom effect on hover */
+.shop-btn:hover {
+    background-color: #333;
+    transform: scale(1.1); /* Zoom effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Optional shadow for more emphasis */
+    cursor: pointer;
+}
+
+/* Apply a different cursor on hover */
+.shop-btn:hover {
+    cursor: zoom-in;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/*  bestseller part    */
+
+
+
+.product-card {
+    padding: 10px; /* Reduce padding */
+    border: 1px solid #ccc; /* Optional: add border for visibility */
+    border-radius: 5px; /* Optional: round corners */
+    max-width: 300px; /* Set a maximum width for the card */
+    margin: auto; /* Center the card */
+}
+
+.video-container {
+    width: 100%; /* Make the video responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 320px; /* Set a maximum height for the video */
+}
+
+
+
+.video-container {
+    max-width: 100%; /* Makes video responsive */
+    border-radius: 8px; /* Rounded video corners */
+}
+
+.sub {
+    border: 1px solid #fff;
+}
+.btn .btn-primary-jos{
+    width: 100%; /* Full-width buttons */
+    margin: 5px 0; /* Space between buttons */
+}
+
+                                        /*    big picture  2  */
+
+.container-pos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.text-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.text-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.image-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .container-pos {
+        flex-direction: column;
+    }
+
+    .text-section {
+        text-align: center;
+    }
+
+    .image-section {
+        flex-direction: column;
+    }
+
+    .image-section img {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+/*     brands       */
+
+
+.brands-container {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.brands {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.brand {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.brand img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.brand:hover img {
+    transform: scale(1.2);
+}
+
+.shop-all {
+    display: inline-block;
+    margin-top: 20px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+
+                                                      /*  footer   */
+
+
+
+
+    .footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #ddd;
+}
+
+.footer-contact {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-social {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-social a {
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.footer-social a:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+}

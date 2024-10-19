@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Your Cart</h2>
+    <div id="cart-items" class="list-group mb-3">
+        <!-- Cart items will be inserted here dynamically -->
+    </div>
+    <h4>Total Amount: ₹ <span id="total-amount">0</span></h4>
+</div>
+
+<script>
+function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || []; // Fetch the cart from localStorage
+    const cartItemsElement = document.getElementById('cart-items');
+    cartItemsElement.innerHTML = ''; // Clear previous content
+    let totalAmount = 0;
+
+    // Iterate through the cart items and display them
+    cart.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+
+        itemElement.innerHTML = `
+            ${item.name} - ₹${item.price}
+            <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Remove</button>
+        `;
+        cartItemsElement.appendChild(itemElement);
+        totalAmount += item.price;
+    });
+
+    // Update the total amount
+    document.getElementById('total-amount').innerText = totalAmount;
+}
+
+function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get the current cart from localStorage
+
+    // Remove the item at the given index
+    cart.splice(index, 1);
+
+    // Update localStorage with the new cart
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Reload the cart to reflect changes
+    loadCart();
+}
+
+// Load cart data when the page loads
+window.onload = loadCart;
+</script>
+
+</body>
+</html>

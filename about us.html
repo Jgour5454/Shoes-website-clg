@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Zixy</title>
+    <style>* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+    
+    .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    header {
+        background-color: #333;
+        color: white;
+        padding: 1rem 0;
+    }
+    
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    header h1 {
+        margin: 0;
+    }
+    
+    header nav ul {
+        list-style: none;
+        display: flex;
+    }
+    
+    header nav ul li {
+        margin-left: 20px;
+    }
+    
+    header nav ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    header nav ul li a:hover {
+        text-decoration: underline;
+    }
+    
+    main {
+        padding: 2rem 0;
+    }
+    
+    .about {
+        background-color: #f4f4f4;
+        padding: 2rem 0;
+    }
+    
+    .about h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .about p {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .team {
+        padding: 2rem 0;
+    }
+    
+    .team h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .team-member {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .team-member img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+    }
+    
+    footer ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+    
+    footer ul li {
+        margin-left: 20px;
+    }
+    
+    footer ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    footer ul li a:hover {
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+        header .container {
+            flex-direction: column;
+            text-align: center;
+        }
+    
+        header nav ul {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        header nav ul li {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+    
+        .container {
+            width: 90%;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .about, .team {
+            padding: 1rem 0;
+        }
+    
+        .team-member img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Zixy</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <p style="color: darkgoldenrod;">Welcome to Zixy, where innovation meets excellence. We are dedicated to providing top-notch solutions to meet your needs. Our team of experts works tirelessly to ensure that we deliver outstanding results that exceed your expectations.</p>
+                <p style="color: darkgoldenrod;">Founded in 2021, Zixy has quickly become a leader in the industry, known for our commitment to quality and customer satisfaction. We believe in the power of technology to transform lives and are passionate about helping our clients achieve their goals.</p>
+            </div>
+        </section>
+
+        <section class="team">
+            <div class="container">
+                <h2>Meet Our Team</h2>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>John Doe</h3>
+                    <p>CEO & Founder</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>Jane Smith</h3>
+                    <p>Chief Operating Officer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member">
+                    <h3>jatin gour</h3>
+                    <p>Chief Technology Officer</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Zixy. All rights reserved.</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

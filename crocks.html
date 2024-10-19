@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Collection</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .header {
+            background-color: black; /* Black background */
+            color: white; /* White text color */
+            text-align: center; /* Center alignment */
+            padding: 20px 0; /* Padding for spacing */
+            margin-bottom: 20px; /* Margin below the header */
+        }
+        .header h1 {
+            font-size: 3rem; /* Size of the heading */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Custom CSS Styles */
+        body {
+            background-color: #f4f4f4;
+        }
+        .hero {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            background-color: #333132; /* Dark background */
+            color: white; /* White text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .hero img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            max-height: 100%;
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            margin-bottom: 20px;
+        }
+        .hero .btn {
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+        .hero .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .card {
+            margin: 15px; /* Space between cards */
+            border: none; /* Remove card border */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Round image corners */
+        }
+        .card img {
+            width: 100%; /* Make the image fill the card */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px 10px 0 0; /* Round top corners of the image */
+        }
+        .card-title {
+            font-size: 1.2rem; /* Size of the product title */
+            font-weight: bold; /* Bold title */
+        }
+        .rating {
+            display: flex; /* Flexbox for star rating */
+            align-items: center; /* Center items vertically */
+        }
+        .rating span {
+            margin-left: 5px; /* Space between star and rating text */
+        }
+        .old-price {
+            text-decoration: line-through; /* Strike through old price */
+            color: #888; /* Gray color for old price */
+        }
+        .discount {
+            color: red; /* Red color for discount percentage */
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        .banner-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .banner-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .banner-text p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .banner-text h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .banner-link {
+            display: inline-block;
+            font-size: 1rem;
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1200px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .banner-text h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .banner-text p {
+                font-size: 0.8rem;
+            }
+            .banner-text h1 {
+                font-size: 1.2rem;
+            }
+            .banner-link {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Crocs</h1>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Big Cozy Comfort</h1>
+            <p>Fall Favorites: Up to 50% Off Select Styles!</p>
+            <a href="#" class="btn">Shop Collection</a>
+        </div>
+        <img src="crocs.png" alt="Cozy Shoes"> <!-- Replace with your image -->
+    </div>
+
+    <!-- Card Section -->
+    <div class="container">
+        <h1 class="text-center my-4">Crocs Collection</h1>
+        <div class="row justify-content-center">
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3EPG3lP1om34ZL4RZaKMNixMbtFk-u5x72A&s" alt="Women Sliders">
+                    <div class="card-body">
+                        <h5 class="card-title">Crocs Women Sliders</h5>
+                        <div class="rating">
+                            <span>⭐ 3.2</span> | <span>6 Reviews</span>
+                        </div>
+                        <p class="card-text">Rs. 1046 <span class="old-price">Rs. 1495</span></p>
+                        <p class="discount">(30% OFF)</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Crocs Women Sliders" data-price="1046" onclick="addToCart('Crocs Women Sliders', 1046)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/97/00/68/97006882cb453250eb5dea42ef9a9487.jpg" alt="Men Baya Clogs">
+                    <div class="card-body">
+                        <h5 class="card-title">Crocs Men Baya Clogs</h5>
+                        <div class="rating">
+                            <span>⭐ 4.3</span> | <span>1.3k Reviews</span>
+                        </div>
+                        <p class="card-text">Rs. 2697 <span class="old-price">Rs. 4495</span></p>
+                        <p class="discount">(40% OFF)</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Crocs Men Baya Clogs" data-price="4495" onclick="addToCart('Crocs Men Baya Clogs', 4495)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img src="https://kxadmin.metroshoes.com/product/127-207464/550/127-207464O6WS.jpg" alt="Men Bayaband Clogs">
+                    <div class="card-body">
+                        <h5 class="card-title">Crocs Men Bayaband Clogs</h5>
+                        <div class="rating">
+                            <span>⭐ 4.5</span> | <span>6.4k Reviews</span>
+                        </div>
+                        <p class="card-text">Rs. 3297 <span class="old-price">Rs. 5495</span></p>
+                        <p class="discount">(40% OFF)</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Crocs Men Bayaband Clogs" data-price="3297" onclick="addToCart('Crocs Men Bayaband Clogs', 3297)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/ff/62/62/ff62627c4f999aa04b3444b56561c9b8.jpg" alt="Kids Bayaband Clogs">
+                    <div class="card-body">
+                        <h5 class="card-title">Crocs Kids Bayaband Clogs</h5>
+                        <div class="rating">
+                            <span>⭐ 4.4</span> | <span>7.8k Reviews</span>
+                        </div>
+                        <p class="card-text">Rs. 2097 <span class="old-price">Rs. 3495</span></p>
+                        <p class="discount">(40% OFF)</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Crocs Kids Bayaband Clogs" data-price="2097" onclick="addToCart('Crocs Kids Bayaband Clogs', 2097)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="https://www.vhv.rs/dpng/d/405-4052141_crocs-hd-png-download.png" alt="Summer Sale" class="banner-image">
+        <div class="banner-text">
+            <h1>Summer Sale!</h1>
+            <p>Save up to 70% off on select styles.</p>
+            <a href="#" class="banner-link">Shop Now</a>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS (Optional for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+  // Initialize cart array
+  let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get existing cart from localStorage or create a new one
+
+  // Function to add an item to the cart
+  function addToCart(name, price) {
+      // Add the product to the cart array
+      cart.push({ name: name, price: price });
+      localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart to localStorage
+
+      // Update the cart count in the navbar
+      document.getElementById('cart-count').innerText = cart.length;
+
+      // Show confirmation message
+      alert(`${name} has been added to your cart!`);
+  }
+
+  // Function to open the cart modal (dummy implementation)
+  function openCartModal() {
+      // Dummy function - implementation can be added later
+  }
+  
+  // Function to close the cart modal (dummy implementation)
+  function closeCartModal() {
+      // Dummy function - implementation can be added later
+  }
+</script>
+
+    <!-- Optional Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

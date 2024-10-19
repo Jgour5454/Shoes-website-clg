@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar with Login Tab and Dropdown Categories</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Include your custom styles -->
+</head>
+<body>
+
+    <div class="navbar">
+                            <!-- Logo Section -->
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+    
+        <div class="search-bar">
+            <input type="text" placeholder="What are you looking for?">
+            <button class="search-button">
+                <i class="search-icon">🔍</i>
+            </button>
+        </div>
+    
+        <!-- Tabs Section -->
+        <div class="tabs">
+            <a href="mens.html" class="tab">Men's</a>
+            <a href="womens.html" class="tab">Women's</a>
+            <a href="crocks.html" class="tab">Crocs</a>
+            <a href="about us.html" class="tab">About Us</a>
+        </div>
+    
+        <!-- User Login and Cart Icons -->
+        <div class="user-cart">
+            <div class="login" onclick="openLoginModal()">
+                <i class="user-icon">👤</i>
+                <span>Login</span>
+            </div>
+            <div class="cart">
+                <i class="cart-icon">🛒</i>
+                <a href="cart.html" class="tab">Cart</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dynamic Content Area for Category-specific content -->
+    <div id="mainContent">
+        <!-- This content will change dynamically based on category selection -->
+    </div>
+    
+    <!-- Modal Overlay for Login -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeLoginModal()">
+        <div class="login-form" onclick="event.stopPropagation();"> <!-- Prevent closing when clicking inside the form -->
+            <img src="logo.png" alt="Login Logo" class="login-logo">
+            <form action="#">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter email (e.g. user@example.com)">
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter password">
+                
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <!-- Image Slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="https://www.dmarge.com/wp-content/uploads/2016/03/off-white.jpg" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="https://www.bata.com/on/demandware.static/-/Sites-bata-my-Library/en_MY/dw0ddf05dc/Plp/Sneakers2Live_PLP_Mobile.jpg" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1f2f4d25788325.5634ac158a3da.png" alt="Image 3">
+            </div>
+            <div class="slide">
+                <img src="https://www.marketing91.com/wp-content/uploads/2020/06/Nike-advertising.jpg" alt="Image 4">
+            </div>
+        </div>
+    </div>
+
+    <hr class="sub"> 
+        <h1 class="heading">Top Trending</h1>
+    <hr class="sub">
+    <div class="container mt-7 p-9">
+        <div class="d-flex justify-content-between flex-nowrap">
+            <div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+                <img src="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_1.3/h_524,c_limit/4b0e15f1-824a-436e-9fd4-399699f312b8/air-max-dn-shoes-FtLNfm.png" class="card-img-top product-image" alt="Nike Air Max Dn">
+                <div class="card-body">
+                    <h5 class="card-title">Nike Air Max Dn</h5>
+                    <p class="card-text category">Men Shoes</p>
+                    <p class="card-text price">MRP: ₹ 13,995.00</p>
+                    <div class="d-flex justify-content-around">
+                        <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                            <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                        </button>
+                        <button class="btn btn-primary add-to-cart" data-name="Nike Air Max Dn" data-price="13995" 
+                        onclick="addToCart('Nike Air Max Dn', 13995)">
+                        Add to Cart
+                    </button>
+                        <button class="btn btn-light-share">
+                            <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Card 2 -->
+<div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf40mJSp3DKZtc2TDCY2QYuP7ncuEDYig1DQ&s" class="card-img-top product-image" alt="U.S. Polo Assn Men">
+    <div class="card-body">
+        <h5 class="card-title">U.S. Polo Assn Men</h5>
+        <p class="card-text category">Men Shoes</p>
+        <p class="card-text price">MRP: ₹ 3,995.00</p>
+        <div class="d-flex justify-content-around">
+            <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+            </button>
+            <button class="btn btn-primary add-to-cart" data-name="U.S. Polo Assn Men" data-price="3995" onclick="addToCart('U.S. Polo Assn Men', 3995)">
+                Add to Cart
+            </button>
+            <button class="btn btn-light-share">
+                <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Card 3 -->
+<div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+    <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/308493/02/sv01/fnd/IND/fmt/png/BMW-M-Motorsport-Caven-2.0-Unisex-Sneakers" class="card-img-top product-image" alt="BMW M Motorsport Caven 2.0">
+    <div class="card-body">
+        <h5 class="card-title">BMW M Motorsport</h5>
+        <p class="card-text category">Men Shoes</p>
+        <p class="card-text price">MRP: ₹ 6,995.00</p>
+        <div class="d-flex justify-content-around">
+            <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+            </button>
+            <button class="btn btn-primary add-to-cart" data-name="BMW M Motorsport" data-price="6995" onclick="addToCart('BMW M Motorsport', 6995)">
+                Add to Cart
+            </button>
+            <button class="btn btn-light-share">
+                <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Card 4 -->
+<div class="card text-center" style="width: 18rem;">
+    <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/392753/01/sv01/fnd/IND/fmt/png/PUMA-Smasher-Women's-Sneakers" class="card-img-top product-image" alt="PUMA-Smasher-Women's-Sneakers">
+    <div class="card-body">
+        <h5 class="card-title">PUMA Smasher</h5>
+        <p class="card-text category">Women Shoes</p>
+        <p class="card-text price">MRP: ₹ 2,995.00</p>
+        <div class="d-flex justify-content-around">
+            <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+            </button>
+            <button class="btn btn-primary add-to-cart" data-name="PUMA Smasher" data-price="2995" onclick="addToCart('PUMA Smasher', 2995)">
+                Add to Cart
+            </button>
+            <button class="btn btn-light-share">
+                <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+            </button>
+        </div>
+    </div>
+</div>
+        </div>
+
+<!-- Best Seller Section -->
+<hr class="sub"> 
+        <h1 class="heading" style="color: azure;">Best Seller</h1>
+    <hr class="sub">
+    <div class="container mt-7 p-9">
+        <div class="d-flex justify-content-between flex-nowrap">
+<!-- Card 1 -->
+<div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLal5nUSHttU5xScGFm5HR7O83yhNlGpHr1Q&s" class="card-img-top product-image" alt="Puma zOx">
+    <div class="card-body">
+        <h5 class="card-title">Puma zOx</h5>
+        <p class="card-text category">Men Shoes</p>
+        <p class="card-text price">MRP: ₹ 9,995.00</p>
+        <div class="d-flex justify-content-around">
+            <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+            </button>
+            <button class="btn btn-primary add-to-cart" data-name="Puma zOx" data-price="9995" onclick="addToCart('Puma zOx', 9995)">
+                Add to Cart
+            </button>
+            <button class="btn btn-light-share">
+                <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- You would repeat this process for all remaining cards, adjusting the product name and price accordingly. -->
+
+
+        <!-- Card 2 -->
+        <div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+            <img src="https://www.jiomart.com/images/product/original/rvv8veem7t/evoknit-sports-shoes-trekking-shoes-running-shoes-for-women-running-shoes-for-women-pink-product-images-rvv8veem7t-2-202211111214.jpg?im=Resize=(500,630)" class="card-img-top product-image" alt="U.S. Polo Assn Men">
+            <div class="card-body">
+                <h5 class="card-title">CLASSICA FIt</h5>
+                <p class="card-text category">women Shoes</p>
+                <p class="card-text price">MRP: ₹ 3,995.00</p>
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                        <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                    </button>
+                    <button class="btn btn-primary add-to-cart" data-name="CLASSICA FIt" data-price="3,995.00" onclick="addToCart('CLASSICA FIt', 3,995.00)">
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-light-share">
+                        <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-navyCbW-VbcP8ptkeSKxwGAZvvLSdFqXzg&s" class="card-img-top product-image" alt="BMW M Motorsport Caven 2.0">
+            <div class="card-body">
+                <h5 class="card-title">ZAC Sporty</h5>
+                <p class="card-text category">Men Shoes</p>
+                <p class="card-text price">MRP: ₹ 6,995.00</p>
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                        <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                    </button>
+                    <button class="btn btn-primary add-to-cart" data-name="ZAC Sporty" data-price="6,995.00" onclick="addToCart('ZAC Sporty', 6,995.00)">
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-light-share">
+                        <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card text-center" style="width: 18rem;">
+            <img src="https://img.joomcdn.net/4a016ac50ffa58f841d2c96bfe9524cecc8760a6_original.jpeg" class="card-img-top product-image" alt="PUMA-Smasher-Women's-Sneakers">
+            <div class="card-body">
+                <h5 class="card-title">PUMA ROCK </h5>
+                <p class="card-text category">Women Shoes</p>
+                <p class="card-text price">MRP: ₹ 2,995.00</p>
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                        <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                    </button>
+                    <button class="btn btn-primary add-to-cart" data-name="PUMA ROCK" data-price="2,995.00" onclick="addToCart('PUMA ROCK',  2995.00)">
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-light-share">
+                        <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    
+
+                                                        <!--SECTION 3-->
+<hr class="sub"> 
+<h1 class="heading">Shop By Unique Design</h1>
+<hr class="sub">
+<div class="container mt-7 p-9">
+    <div class="d-flex justify-content-between flex-nowrap">
+        <!-- Card 1 -->
+        <div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGd-9JUlzHuiIPILl0XGcxwXUW55rrU2tUA&s" class="card-img-top product-image" alt="Nike Air Max Dn">
+            <div class="card-body">
+                <h5 class="card-title">Nike sKY</h5>
+                <p class="card-text category">Men Shoes</p>
+                <p class="card-text price">MRP: ₹ 13,995.00</p>
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                        <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                    </button>
+                    <button class="btn btn-primary add-to-cart" data-name="Nike sKY" data-price="3,995.00" onclick="addToCart('Nike sKY',13995.00)">
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-light-share">
+                        <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzf3JNJBG8rKbGYJ-GdJdnVr8cOv6hsntw5A&s" class="card-img-top product-image" alt="U.S. Polo Assn Men">
+            <div class="card-body">
+                <h5 class="card-title">FILA Classic</h5>
+                <p class="card-text category">Men Shoes</p>
+                <p class="card-text price">MRP: ₹ 3,995.00</p>
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                        <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                    </button>
+                    <button class="btn btn-primary add-to-cart" data-name="FILA Classic" data-price="3,995.00" onclick="addToCart('FILA Classic', 3995.00)">
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-light-share">
+                        <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card text-center" style="width: 18rem; margin-right: 1rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtCFAkU8JSvUuHuuL4sIMhkgshpogiuI-TTw&s" class="card-img-top product-image" alt="BMW M Motorsport Caven 2.0">
+            <div class="card-body">
+                <h5 class="card-title">PUMA wac</h5>
+                <p class="card-text category">Men Shoes</p>
+                <p class="card-text price">MRP: ₹ 6,995.00</p>
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                        <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                    </button>
+                    <button class="btn btn-primary add-to-cart" data-name="PUMA wac" data-price="3,995.00" onclick="addToCart('PUMA wac',  6995.00)">
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-light-share">
+                        <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card text-center" style="width: 18rem;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5hYD31P6ZkmF1gKFPUx_uXOsJ8-C_asG-zA&s" class="card-img-top product-image" alt="PUMA-Smasher-Women's-Sneakers">
+            <div class="card-body">
+                <h5 class="card-title">Adidas nox </h5>
+                <p class="card-text category">Women Shoes</p>
+                <p class="card-text price">MRP: ₹ 2,995.00</p>
+                <div class="d-flex justify-content-around">
+                    <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                        <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                    </button>
+                    <button class="btn btn-primary add-to-cart" data-name="Adidas nox" data-price="2,995.00" onclick="addToCart('Adidas nox', 2995.00)">
+                        Add to Cart
+                    </button>
+                    <button class="btn btn-light-share">
+                        <img src="https://cdn4.iconfinder.com/data/icons/materia-flat-social-free/24/038_028_share_link_friends_send_android_material-256.png" alt="Share" width="24">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="sub">
+
+
+                                <!--big photo advertise-->
+
+    <section class="hero">
+        <div class="content">
+            <h1>Crushing on Plush</h1>
+            <p>Sherpa, faux fur, and fleece, oh my!</p>
+            <div class="button-group">
+                <button class="shop-btn" onclick="shopCozy()">Shop Cozy Styles</button>
+                <button class="shop-btn" onclick="shopSlippers()">Shop Slippers</button> 
+            </div>
+        </div>
+    </section>
+
+    <hr class="sub">
+ 
+                    <!--photo  section-->
+
+
+<div class="container-card mt-5">
+    <h2 class="text-center mb-4">Bestsellers</h2>
+    <hr class="sub">
+    <div class="row">
+        <!-- Product Card 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="product-card text-center">
+                
+                <video class="video-container mb-2" controls>
+                    <source src="https://videocdn.quinn.live/bjk56l2i3qt5n2x70pm0aive/quinn_bj921vmn6g5kyynevqk2bxv9.mp4?v=1#t=0.1" type="video/mp4">
+                
+                </video>
+                <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                    <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                </button>
+                <button class="btn btn-secondary" onclick="showDetails()">Details</button>
+                <button class="btn btn-primary add-to-cart" data-name="fastrack" data-price="5,995.00" onclick="addToCart('fastrack', 5995.00)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="product-card text-center">
+                <video class="video-container mb-2" controls>
+                    <source src="https://videocdn.quinn.live/ccrt6y1644urk4fyaf3jd4ti/quinn_u36a0agrpgg80fearueup8yz.mp4?v=1#t=0.1" type="video/mp4">
+                
+                </video>
+                <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                    <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                </button>
+                <button class="btn btn-secondary" onclick="showDetails()">Details</button>
+                <button class="btn btn-primary add-to-cart" data-name="BATA-b21" data-price="7,995.00" onclick="addToCart('BATA-b21', 7995.00)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="product-card text-center">
+                <video class="video-container mb-2" controls>
+                    <source src="https://videocdn.quinn.live/rodl69y89cn0job6ghbzxnbx/quinn_vklyggn5xkjhkbh9uwd1cg1d.mp4?v=1#t=0.1" type="video/mp4">
+                
+                </video>
+                <button class="btn btn-light like-button" onclick="toggleLike(this)">
+                    <img src="https://img.icons8.com/?size=100&id=86721&format=png&color=000000" alt="Like" width="24" class="like-icon">
+                </button>
+                <button class="btn btn-secondary" onclick="showDetails()">Details</button>
+                <button class="btn btn-primary add-to-cart" data-name="NOVA -ss" data-price="9,995.00" onclick="addToCart('NOVA -ss', 9995.00)">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="sub">
+
+
+<!--    big image 2-->
+
+<section class="hero-pos">
+    <div class="content">
+        <h1>Perfect-Fitting Tall Boots</h1>
+        <p>It’s not a dream: our wide-calf boots just feel like it.</p>
+        <div class="button-group">
+            <button class="shop-btn" onclick="shopCozy()">SHOP WOMEN'S TALL BOOTS</button>
+            <button class="shop-btn" onclick="shopSlippers()">SHOP WOMEN'S WIDE CALF BOOTS</button> 
+        </div>
+    </div>
+</section>
+
+
+<!--brands -->
+
+
+<div class="brands-container">
+    <h2>Brands of Fall</h2>
+    <div class="brands">
+        <div class="brand">
+            <img src="https://cdn.media.amplience.net/i/scvl/Birkenstock_brandmenuBLACK?fmt=auto&w=160&$common-template$" alt="Birkenstock">
+        </div>
+        <div class="brand">
+            <img src="https://cdn.media.amplience.net/i/scvl/brand-menu-KOOLABURRA?fmt=auto&w=160&$common-template$" alt="Koolaburra by UGG">
+        </div>
+        <div class="brand">
+            <img src="https://cdn.media.amplience.net/i/scvl/brand-menu-logo-crocs?fmt=auto&w=160&$common-template$" alt="Crocs">
+        </div>
+        <div class="brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike">
+        </div>
+        <div class="brand">
+            <img src="https://cdn.media.amplience.net/i/scvl/brand-carousel-Bearpaw?fmt=auto&w=160&$common-template$" alt="Bearpaw">
+        </div>
+        <div class="brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas">
+        </div>
+        <div class="brand">
+            <img src="https://cdn.media.amplience.net/i/scvl/brand-menu-logo-newbalance?fmt=auto&w=160&$common-template$" alt="New Balance">
+        </div>
+        <div class="brand">
+            <img src="https://cdn.media.amplience.net/i/scvl/Skechers_brandmenuBLACK?fmt=auto&poi=%7B%24this.metadata.pointOfInterest.x%7D%2C%7B%24this.metadata.pointOfInterest.y%7D%2C%7B%24this.metadata.pointOfInterest.w%7D%2C%7B%24this.metadata.pointOfInterest.h%7D" alt="Skechers">
+        </div>
+        <div class="brand">
+            <img src="https://cdn.media.amplience.net/i/scvl/brand-menu-logo-puma?fmt=auto&poi=%7B%24this.metadata.pointOfInterest.x%7D%2C%7B%24this.metadata.pointOfInterest.y%7D%2C%7B%24this.metadata.pointOfInterest.w%7D%2C%7B%24this.metadata.pointOfInterest.h%7D" alt="Puma">
+        </div>
+    </div>
+    <a href="#" class="shop-all">Shop All Brands</a>
+</div>
+
+                                                                <!-- footer -->
+
+
+
+<footer class="footer">
+    <div class="footer-columns">
+        <div class="footer-column">
+            <h3>SHOP FOR MEN</h3>
+            <ul>
+                <li><a href="#">Sneakers</a></li>
+                <li><a href="#">Slip Ons</a></li>
+                <li><a href="#">Slides & Sandals</a></li>
+                <li><a href="#">Loafers & Oxfords</a></li>
+                <li><a href="#">Flip Flops</a></li>
+                <li><a href="#">Clothing</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>SHOP FOR WOMEN</h3>
+            <ul>
+                <li><a href="#">Sneakers</a></li>
+                <li><a href="#">Slip Ons</a></li>
+                <li><a href="#">Flats</a></li>
+                <li><a href="#">Slides & Sandals</a></li>
+                <li><a href="#">Flip Flops</a></li>
+                <li><a href="#">Clothing</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>INFORMATION</h3>
+            <ul>
+                <li><a href="#">Brand Impact</a></li>
+                <li><a href="#">Why ZIXY ?</a></li>
+                <li><a href="#">Our Stores</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>GUIDES</h3>
+            <ul>
+                <li><a href="#">Schedule a Return / Exchange</a></li>
+                <li><a href="#">Returns Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-contact">
+        <p>CONTACT US -</p>
+        <p>WhatsApp: +91 90599-38941</p>
+        <p>Call: +91 90599-38941</p>
+    </div>
+    <div class="footer-social">
+        <a href="https://www.instagram.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="24" height="24"></a>
+
+        <a href="https://www.facebook.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="24" height="24"></a>
+
+        <a href="https://www.youtube.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" width="24" height="24"></a>
+
+        <a href="https://www.linkedin.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="24" height="24"></a>
+
+
+    </div>
+</footer>
+    <script>
+        // Function to open the login modal
+        function openLoginModal() {
+            document.getElementById('modalOverlay').style.display = 'flex'; // Show modal
+        }
+
+        // Function to close the login modal
+        function closeLoginModal() {
+            document.getElementById('modalOverlay').style.display = 'none'; // Hide modal
+        }
+
+        // Function to open specific tab content (Login or Cart)
+        function openTab(tabId) {
+            // Hide all tab content first
+            var tabs = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = 'none'; // Hide tab content
+            }
+        }
+        const categories = {
+            "crocks": {
+                title: "Crocks",
+                content: `<h2>Crocks Collection</h2>
+                          <p>Explore a wide variety of comfortable and durable crocks.</p>
+                          <ul>
+                            <li>Crocks Model 1</li>
+                            <li>Crocks Model 2</li>
+                            <li>Crocks Model 3</li>
+                          </ul>`
+            },
+            "mens-wear": {
+                title: "Mens Wear",
+                content: `<h2>Men's Wear Collection</h2>
+                          <p>Shop the latest men's fashion trends.</p>
+                          <ul>
+                            <li>Men's Jacket</li>
+                            <li>Men's Shirt</li>
+                            <li>Men's Pants</li>
+                          </ul>`
+            },
+            "womens-wear": {
+                title: "Womens Wear",
+                content: `<h2>Women's Wear Collection</h2>
+                          <p>Discover trendy women's clothing for every occasion.</p>
+                          <ul>
+                            <li>Women's Dress</li>
+                            <li>Women's Skirt</li>
+                            <li>Women's Top</li>
+                          </ul>`
+            }
+        };
+
+        function loadCategoryContent() {
+            const dropdown = document.getElementById('categoryDropdown');
+            const selectedValue = dropdown.value;
+            const mainContent = document.getElementById('mainContent');
+
+            if (selectedValue && categories[selectedValue]) {
+                mainContent.innerHTML = categories[selectedValue].content;
+            } else {
+                mainContent.innerHTML = `<h2>Welcome to our store!</h2>
+                                         <p>Please select a category from the dropdown to view specific products.</p>`;
+            }
+        }
+
+        function openLoginModal() {
+            document.getElementById('modalOverlay').style.display = 'block';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+
+        function openTab(tabId) {
+            const tab = document.getElementById(tabId);
+            tab.style.display = 'block';
+        }
+        
+        // Image slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Automatically change slides every 2 seconds
+        setInterval(nextSlide, 5000);
+
+
+                        //like button customize
+                        
+     // Select the like button
+        const likeBtn = document.querySelector('.like-btn');
+        // Add event listener for click
+        likeBtn.addEventListener('click', function() {
+        // Toggle the 'liked' class
+        this.classList.toggle('liked');
+        });
+
+
+
+        // big picture 
+
+        function shopCozy() {
+            window.location.href = "https://www.example.com/shop-cozy-styles"; // Add your URL
+        }
+        
+        function shopSlippers() {
+            window.location.href = "https://www.example.com/shop-slippers"; // Add your URL
+        }
+
+
+
+
+            // Initialize an empty cart
+            let cart = [];
+
+            /// add to cart optyion  
+
+
+
+        // Function to add an item to the cart
+        function addToCart(name, price) {
+            // Add the product to the cart array
+            cart.push({ name: name, price: price });
+            
+            // Update the cart count in the navbar
+            document.getElementById('cart-count').innerText = cart.length;
+        
+            // Update the cart items in the modal
+            updateCartDisplay();
+        }
+        
+        // Function to update the cart display in the modal
+        function updateCartDisplay() {
+            const cartItemsElement = document.getElementById('cart-items');
+            cartItemsElement.innerHTML = ''; // Clear previous items
+            
+            let total = 0;
+        
+            // Iterate through cart items and display them
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `${item.name} - ₹${item.price} <button onclick="removeFromCart(${index})">Remove</button>`;
+                cartItemsElement.appendChild(li);
+                total += item.price;
+            });
+        
+            // Update total price
+            document.getElementById('cart-total').innerText = total;
+        }
+        
+        // Function to remove an item from the cart
+        function removeFromCart(index) {
+            cart.splice(index, 1); // Remove item at the specified index
+            document.getElementById('cart-count').innerText = cart.length;
+            updateCartDisplay();
+        }
+        
+        // Function to handle checkout (dummy implementation)
+        function checkout() {
+            alert('Proceeding to checkout...');
+        }
+        
+        // Function to open the cart modal
+        function openCartModal() {
+            document.getElementById('cartModal').style.display = 'block';
+        }
+        
+        // Function to close the cart modal
+        function closeCartModal() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+
+        // Function to add an item to the cart and save to localStorage
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get existing cart from localStorage or create a new one
+    cart.push({ name: name, price: price }); // Add the product to the cart array
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart to localStorage
+
+    // Update the cart count in the navbar
+    document.getElementById('cart-count').innerText = cart.length;
+
+    // Optionally, show confirmation message
+    alert(`${name} has been added to your cart!`);
+}
+
+
+
+
+/// to like the button 
+
+function toggleLike(button) {
+    const likeIcon = button.querySelector('.like-icon');
+    
+    // Check if the button is liked (red heart)
+    if (likeIcon.src.includes('color=ff0000')) {
+        // Change it back to unliked (black heart)
+        likeIcon.src = "https://img.icons8.com/?size=100&id=86721&format=png&color=000000";
+    } else {
+        // Change it to liked (red heart
+        likeIcon.src = "liked.png";
+    }
+}
+
+
+            </script>
+            
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
